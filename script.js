@@ -14,3 +14,7 @@ document.body.appendChild(container);
 
 // console.log(square);
 
+container.addEventListener("mouseover", function (e) {
+  console.log(e.target);
+});
+
