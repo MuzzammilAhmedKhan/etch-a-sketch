@@ -15,6 +15,21 @@ document.body.appendChild(container);
 // console.log(square);
 
 container.addEventListener("mouseover", function (e) {
-  console.log(e.target);
+  // console.log(e.target);
+  e.target.style.backgroundColor = randomColor();
 });
+
+let randomColor = () => {
+  let letters = "0123456789ABCDEF";
+  let color = "#";
+  for(let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * letters.length)];
+  }
+  return color
+}
+
+// console.log(randomColor());
+
+
+
 
