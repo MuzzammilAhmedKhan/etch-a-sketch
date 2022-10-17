@@ -7,7 +7,7 @@ for (let i = 1; i <= 256; i++) {
   square = document.createElement("div");
   square.setAttribute("class", "square");
   square.setAttribute("id", `square-${i}`);
-  square.innerText = `${i}`;
+  // square.innerText = `${i}`;
   container.appendChild(square);
 }
 document.body.appendChild(container);

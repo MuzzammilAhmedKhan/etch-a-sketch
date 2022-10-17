@@ -26,7 +26,7 @@ body * {
 .square {
     height: 50px;
     width: 50px;
-    border: solid .5px rgb(53, 172, 162);
+    /* border: solid .5px rgb(53, 172, 162); */
     padding:0;
     margin: 0;
     background: transparent;
