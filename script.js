@@ -1,35 +1,39 @@
-const container = document.createElement("div");
-container.setAttribute("class", "container");
+document.querySelector(".btn").addEventListener("click", function () {
+  gridSize = getInputValue();
+  var container = document.querySelector(".container");
 
-var square;
+  if (gridSize >= 1 && gridSize <= 100) {
+    for (let i = 0; i < gridSize * gridSize; i++) {
+      var square = document.createElement("div");
+      square.classList.add("class", "square");
+      // square.innerText = "-"
+      container.appendChild(square);
+    }
+    container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
+    container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+    gridSize = 0;
+  } else {
+    document.querySelector(".container").textContent =
+      "Please enter a number between 1 and 100";
+  }
 
-for (let i = 1; i <= 256; i++) {
-  square = document.createElement("div");
-  square.setAttribute("class", "square");
-  square.setAttribute("id", `square-${i}`);
-  // square.innerText = `${i}`;
-  container.appendChild(square);
-}
-document.body.appendChild(container);
-
-// console.log(square);
-
-container.addEventListener("mouseover", function (e) {
-  // console.log(e.target);
-  e.target.style.backgroundColor = randomColor();
+  container.addEventListener("mouseover", (e) => {
+    if (e.target.classList.contains("square")) {
+      e.target.style.backgroundColor = randomColor();
+    }
+  });
 });
 
 let randomColor = () => {
   let letters = "0123456789ABCDEF";
   let color = "#";
-  for(let i = 0; i < 6; i++) {
+  for (let i = 0; i < 6; i++) {
     color += letters[Math.floor(Math.random() * letters.length)];
   }
-  return color
+  return color;
+};
+
+function getInputValue() {
+  var inputVal = document.getElementById("grid-size").value;
+  return inputVal;
 }
-
-// console.log(randomColor());
-
-
-
-
